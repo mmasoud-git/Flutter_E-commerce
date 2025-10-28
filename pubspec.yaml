@@ -1,0 +1,23 @@
+name: flutter_demo_ecommerce
+description: Demo e-commerce app for assignment (login, products, local search, favorites, cart, profile, embedded YouTube).
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: ^6.0.5
+  dio: ^5.5.0+1
+  shared_preferences: ^2.3.2
+  youtube_player_flutter: ^8.1.2
+  cached_network_image: ^3.2.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
