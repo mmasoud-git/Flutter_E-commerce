@@ -1,0 +1,11 @@
+# Flutter/Dart/Pub related
+.dart_tool/
+.packages
+.pub-cache/
+build/
+# VSCode/IntelliJ
+.vscode/
+.idea/
+*.iml
+# Mac
+.DS_Store
