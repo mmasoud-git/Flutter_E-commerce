@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'njection/dependency_injection.dart';
 import 'providers/auth_provider.dart';
 import 'providers/products_provider.dart';
 import 'providers/favorites_provider.dart';
@@ -11,7 +12,11 @@ import 'screens/cart_screen.dart';
 import 'screens/profile_screen.dart';
 import 'screens/info_screen.dart';
 
-void main() {
+
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await init(); // from dependency_injection.dart
   runApp(const MyApp());
 }
 

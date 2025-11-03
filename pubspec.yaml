@@ -9,11 +9,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  # Existing packages
   provider: ^6.0.5
   dio: ^5.5.0+1
   shared_preferences: ^2.3.2
   youtube_player_flutter: ^8.1.2
   cached_network_image: ^3.2.3
+
+  # New packages for refactor
+  flutter_riverpod: ^2.5.1
+  get_it: ^7.6.7
 
 dev_dependencies:
   flutter_test:
