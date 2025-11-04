@@ -1,23 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'njection/dependency_injection.dart';
-import 'providers/auth_provider.dart';
-import 'providers/products_provider.dart';
-import 'providers/favorites_provider.dart';
-import 'providers/cart_provider.dart';
-import 'screens/login_screen.dart';
-import 'screens/products_screen.dart';
-import 'screens/favorites_screen.dart';
-import 'screens/cart_screen.dart';
-import 'screens/profile_screen.dart';
-import 'screens/info_screen.dart';
+import 'package:flutter_demo_ecommerce/screens/product_list_screen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'njection/dependency_injection.dart';
 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await init(); // from dependency_injection.dart
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -25,27 +16,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => AuthProvider()),
-        ChangeNotifierProvider(create: (_) => ProductsProvider()),
-        ChangeNotifierProvider(create: (_) => FavoritesProvider()),
-        ChangeNotifierProvider(create: (_) => CartProvider()),
-      ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Demo E-commerce',
-        theme: ThemeData(useMaterial3: true, colorSchemeSeed: Colors.blue),
-        initialRoute: '/login',
-        routes: {
-          '/login': (_) => const LoginScreen(),
-          '/products': (_) => const ProductsScreen(),
-          '/favorites': (_) => const FavoritesScreen(),
-          '/cart': (_) => const CartScreen(),
-          '/profile': (_) => const ProfileScreen(),
-          '/info': (_) => const InfoScreen(),
-        },
-      ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Demo E-commerce Refactor',
+      theme: ThemeData(useMaterial3: true, colorSchemeSeed: Colors.blue),
+      home: const ProductListScreen(),
     );
   }
 }
